@@ -1,7 +1,5 @@
 import socket
 import mcrcon
-import configparser
-from os.path import exists
 import os_detect, sys
 import wr_cfg
 
