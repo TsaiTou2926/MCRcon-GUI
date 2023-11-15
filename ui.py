@@ -1,6 +1,6 @@
 import socket
 import mcrcon
-import os_detect, sys
+import os_detect, platform
 import wr_cfg
 
 config_file = "config.ini"
@@ -8,9 +8,13 @@ config_file = "config.ini"
 wr_cfg.create_config(config_file)
 
 # customize for different platform
-os = os_detect.detect(sys.platform)
+os = os_detect.detect_sys(platform.system())
 if os == "Windows":
-    import PySimpleGUIWx as sg
+    win_ver = os_detect.is_win11()
+    if str(win_ver) == "True":
+        import PySimpleGUIWx as sg
+    else:
+        import PySimpleGUI as sg
 elif os == "MacOS" or "Linux" or "aix" or "unknown":
     import PySimpleGUI as sg
 

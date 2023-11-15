@@ -22,3 +22,4 @@ if __name__ == "__main__":
     if os == "Windows":
         win_ver = is_win11()
         print(f"Windows 11: {win_ver}")
+        print(type(win_ver))
